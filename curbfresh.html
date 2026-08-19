@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curb Fresh — Trash Can, Driveway & Porch Cleaning in Los Gatos</title>
+<meta name="description" content="Curb Fresh washes, sanitizes and restores your trash cans, driveway and porch. Book a time that works for you — no payment until the job is done.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+/* ============================================================
+   ONE THING TO EDIT — your Google Calendar embed URL.
+
+   In Google Calendar: open your Appointment Schedule → Share →
+   "Website embed" → copy the URL from the code it shows you
+   (it looks like:
+   https://calendar.google.com/calendar/appointments/schedules/XXXX?gv=true)
+
+   Paste it between the quotes below. The live slot picker will
+   appear in the "Book" section, and every Book button scrolls
+   straight to it.
+   ============================================================ */
+  const BOOKING_EMBED_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0rjBWXcGcTcaX-X8RiQTc9GzjbySHtp-6s9DqhjStNUtpZrrWgxdGqrP-l67qhbhId9DWU1kT0?gv=true";
+</script>
+<style>
+:root{
+  --ink:#0e2a32;        /* deep water */
+  --base:#f7fbfc;       /* rinsed white */
+  --wash:#ddeef1;       /* light wash */
+  --teal:#0e7c86;       /* hose teal */
+  --teal-dark:#0a5f67;
+  --lemon:#ffd23f;      /* lemon-suds yellow */
+  --lemon-dark:#e8b800;
+  --radius:18px;
+  --font-display:"Bricolage Grotesque", system-ui, sans-serif;
+  --font-body:"Inter", system-ui, -apple-system, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--base);
+  line-height:1.6;
+  padding-bottom:84px; /* room for sticky book bar */
+}
+h1,h2,h3{font-family:var(--font-display);line-height:1.12}
+a{color:var(--teal)}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px}
+
+/* Header */
+header{
+  position:sticky;top:0;z-index:20;
+  background:rgba(247,251,252,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--wash);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:640px;margin:0 auto}
+.logo{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--teal)}
+.nav a.mini-cta{
+  font-size:.85rem;font-weight:600;text-decoration:none;
+  background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px;
+}
+
+/* Hero */
+.hero{padding:52px 20px 44px;text-align:left;position:relative;overflow:hidden}
+.eyebrow{
+  display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:14px;
+}
+.hero h1{font-size:clamp(2.3rem,9vw,3.4rem);font-weight:800;letter-spacing:-.03em;margin-bottom:16px}
+.hero h1 .grimy{
+  color:#8a9aa0;
+  text-decoration:line-through;
+  text-decoration-color:var(--lemon);
+  text-decoration-thickness:5px;
+}
+.hero h1 .gleam{color:var(--teal)}
+.hero p{font-size:1.05rem;color:#3d565e;max-width:34ch;margin-bottom:24px}
+.btn{
+  display:inline-block;text-decoration:none;font-weight:700;font-family:var(--font-body);
+  padding:15px 26px;border-radius:999px;font-size:1rem;text-align:center;
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+.btn:active{transform:scale(.97)}
+.btn-lemon{background:var(--lemon);color:var(--ink);box-shadow:0 4px 14px rgba(255,210,63,.45)}
+.btn-lemon:hover{background:var(--lemon-dark)}
+.btn-ghost{background:transparent;color:var(--ink);border:2px solid var(--wash);margin-left:8px}
+.hero .area{margin-top:18px;font-size:.85rem;color:#5a7078}
+.hero .area::before{content:"📍 "}
+
+/* Suds strip divider */
+.suds{
+  height:26px;background:var(--teal);position:relative;overflow:hidden;
+}
+.suds::after{
+  content:"";position:absolute;left:0;right:0;top:-14px;height:28px;
+  background:
+    radial-gradient(circle 14px at 10% 0, var(--base) 98%, transparent) ,
+    radial-gradient(circle 10px at 22% 0, var(--base) 98%, transparent),
+    radial-gradient(circle 16px at 36% 0, var(--base) 98%, transparent),
+    radial-gradient(circle 9px  at 48% 0, var(--base) 98%, transparent),
+    radial-gradient(circle 15px at 62% 0, var(--base) 98%, transparent),
+    radial-gradient(circle 11px at 75% 0, var(--base) 98%, transparent),
+    radial-gradient(circle 14px at 90% 0, var(--base) 98%, transparent);
+}
+
+/* Sections */
+section{padding:48px 0}
+.section-label{font-size:.75rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+h2{font-size:clamp(1.6rem,6.5vw,2.2rem);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.lede{color:#3d565e;margin-bottom:26px}
+
+/* Service cards */
+.cards{display:grid;gap:16px}
+@media(min-width:560px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{
+  background:#fff;border:1px solid var(--wash);border-radius:var(--radius);
+  padding:22px 20px;
+}
+.card .icon{font-size:1.8rem;margin-bottom:10px;display:block}
+.card h3{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+.card p{font-size:.92rem;color:#3d565e;margin-bottom:12px}
+.price{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--teal)}
+.price small{display:block;font-family:var(--font-body);font-weight:500;font-size:.78rem;color:#5a7078;margin-top:2px}
+.bundle-note{
+  margin-top:16px;background:var(--wash);border-radius:12px;padding:12px 16px;
+  font-size:.9rem;font-weight:600;text-align:center;
+}
+
+/* Plans */
+.plans{display:grid;gap:14px}
+.plan{
+  background:#fff;border:1px solid var(--wash);border-radius:var(--radius);
+  padding:20px;display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+.plan.popular{border:2px solid var(--teal);position:relative}
+.plan.popular::before{
+  content:"Most popular";position:absolute;top:-11px;left:18px;
+  background:var(--teal);color:#fff;font-size:.68rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px;
+}
+.plan h3{font-size:1.05rem;font-weight:700}
+.plan p{font-size:.85rem;color:#5a7078}
+.plan .price{white-space:nowrap;text-align:right}
+
+/* Reviews */
+.reviews{display:grid;gap:14px}
+.review{
+  background:#fff;border:1px solid var(--wash);border-radius:var(--radius);padding:20px;
+}
+.stars{color:var(--lemon-dark);letter-spacing:2px;font-size:.95rem;margin-bottom:8px}
+.review p{font-size:.95rem;margin-bottom:10px}
+.review cite{font-style:normal;font-size:.82rem;font-weight:600;color:#5a7078}
+
+/* Steps */
+.steps{display:grid;gap:0}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--wash)}
+.step:last-child{border-bottom:none}
+.step-num{
+  flex:none;width:38px;height:38px;border-radius:50%;
+  background:var(--wash);color:var(--teal-dark);
+  font-family:var(--font-display);font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+}
+.step h3{font-size:1rem;font-weight:700;margin-bottom:2px}
+.step p{font-size:.9rem;color:#3d565e}
+
+/* Guarantee */
+.guarantee{
+  background:var(--ink);color:#fff;border-radius:var(--radius);
+  padding:26px 22px;text-align:center;
+}
+.guarantee h3{font-size:1.3rem;font-weight:800;margin-bottom:8px;color:var(--lemon)}
+.guarantee p{font-size:.95rem;color:#cfe3e8}
+
+/* FAQ */
+details{
+  background:#fff;border:1px solid var(--wash);border-radius:14px;
+  padding:16px 18px;margin-bottom:10px;
+}
+summary{font-weight:600;cursor:pointer;font-size:.98rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::after{content:"+";font-family:var(--font-display);font-weight:800;color:var(--teal);font-size:1.2rem}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;font-size:.92rem;color:#3d565e}
+
+/* Embedded booking calendar */
+.cal-frame{
+  background:#fff;border:1px solid var(--wash);border-radius:var(--radius);
+  overflow:hidden;margin-top:22px;box-shadow:0 6px 24px rgba(14,42,50,.06);
+}
+.cal-frame iframe{display:block;width:100%;height:640px;border:0}
+.cal-fallback{
+  display:none;padding:26px 20px;text-align:center;font-size:.95rem;color:#3d565e;
+}
+.cal-frame.needs-setup .cal-fallback{display:block}
+.cal-frame.needs-setup iframe{display:none}
+
+/* Final CTA */
+.final-cta{text-align:center;padding:56px 20px 64px}
+.final-cta h2{margin-bottom:10px}
+.final-cta p{color:#3d565e;margin-bottom:24px;max-width:40ch;margin-left:auto;margin-right:auto}
+.no-pay{margin-top:14px;font-size:.85rem;color:#5a7078}
+
+/* Footer */
+footer{border-top:1px solid var(--wash);padding:28px 0;text-align:center;font-size:.82rem;color:#5a7078}
+footer .logo{font-size:1rem}
+
+/* Sticky mobile book bar */
+.book-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:30;
+  background:rgba(247,251,252,.95);backdrop-filter:blur(8px);
+  border-top:1px solid var(--wash);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+}
+.book-bar .inner{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.book-bar .msg{font-size:.8rem;font-weight:600;line-height:1.3;flex:1}
+.book-bar .btn{padding:12px 22px;font-size:.95rem;flex:none}
+@media(min-width:760px){.book-bar .msg{font-size:.9rem}}
+
+a:focus-visible,.btn:focus-visible,summary:focus-visible{
+  outline:3px solid var(--teal);outline-offset:2px;border-radius:6px;
+}
+</style>
+</head>
+<body id="top">
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="#top">Curb<span>Fresh</span></a>
+    <a class="mini-cta booking-link" href="#">Book now</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <span class="eyebrow">Curb-side cleaning, done right</span>
+    <h1>From <span class="grimy">grimy</span> to <span class="gleam">gleaming.</span></h1>
+    <p>We wash, sanitize and restore your trash cans, driveway and porch — right at the curb, on your schedule.</p>
+    <a class="btn btn-lemon booking-link" href="#">Pick a time that works</a>
+    <a class="btn btn-ghost" href="#services">See services</a>
+    <div class="area">Serving Los Gatos &amp; surrounding areas (within 10 miles)</div>
+  </section>
+
+  <div class="suds" aria-hidden="true"></div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-label">What we clean</div>
+      <h2>Three services. One spotless curb.</h2>
+      <p class="lede">Pick one or bundle all three — every job starts with an honest look at the space before we quote a price.</p>
+      <div class="cards">
+        <div class="card">
+          <span class="icon">🗑️</span>
+          <h3>Trash Can Cleaning</h3>
+          <p>Washed, sanitized and deodorized right at your curb — no more grime, bacteria or bad smells.</p>
+          <div class="price">From $20/mo <small>Monthly &amp; quarterly plans below</small></div>
+        </div>
+        <div class="card">
+          <span class="icon">🚗</span>
+          <h3>Driveway Cleaning</h3>
+          <p>Deep-clean pressure washing that lifts oil stains, dirt and buildup — concrete or pavers, looking new.</p>
+          <div class="price">$30–$80 <small>1–2 car: $30–$50 · 3+ car: $60–$80</small></div>
+        </div>
+        <div class="card">
+          <span class="icon">🏡</span>
+          <h3>Porch Cleaning</h3>
+          <p>Steps, railings and flooring washed and refreshed for a porch that welcomes people in.</p>
+          <div class="price">$30–$80 <small>Based on porch size</small></div>
+        </div>
+      </div>
+      <div class="bundle-note">✨ Bundle 2+ services for special package pricing</div>
+    </div>
+  </section>
+
+  <section id="plans" style="background:#fff;border-top:1px solid var(--wash);border-bottom:1px solid var(--wash)">
+    <div class="wrap">
+      <div class="section-label">Trash can cleaning</div>
+      <h2>Choose your can plan.</h2>
+      <p class="lede">Prices include up to 2 bins (trash + recycling). Pick the rhythm that fits your household.</p>
+      <div class="plans">
+        <div class="plan">
+          <div>
+            <h3>One-Time Clean</h3>
+            <p>No commitment — a single clean whenever you need it. +$10 each extra can.</p>
+          </div>
+          <div class="price">$25 <small>one can</small><small>$40 two cans</small></div>
+        </div>
+        <div class="plan popular">
+          <div>
+            <h3>Monthly</h3>
+            <p>Best for keeping odors away year-round. Cleans every 4 weeks. Extra cans +$5/mo each.</p>
+          </div>
+          <div class="price">$30 <small>2 cans / month</small></div>
+        </div>
+        <div class="plan">
+          <div>
+            <h3>Quarterly</h3>
+            <p>Great for seasonal maintenance. Cleans once every 3 months. Extra cans +$10/clean each.</p>
+          </div>
+          <div class="price">$35 <small>2 cans / 3 months</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="wrap">
+      <div class="section-label">Reviews</div>
+      <h2>What our neighbors say.</h2>
+      <div class="reviews" style="margin-top:20px">
+        <div class="review">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Really impressed with how clean everything got, and it was super quick too!"</p>
+          <cite>Cathy — Los Gatos, CA</cite>
+        </div>
+        <div class="review">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"Incredible service and attention to detail!"</p>
+          <cite>Sheen A. — Los Gatos, CA</cite>
+        </div>
+        <div class="review">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p>"I am truly impressed by the professionalism that Curb Fresh brings to the table! My bins were spotless in no time."</p>
+          <cite>Vandana V. — Los Gatos, CA</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="background:#fff;border-top:1px solid var(--wash);border-bottom:1px solid var(--wash)">
+    <div class="wrap">
+      <div class="section-label">How it works</div>
+      <h2>Three steps to a fresh curb.</h2>
+      <div class="steps" style="margin-top:10px">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h3>Grab a time</h3>
+            <p>Tap any Book button and pick a slot straight from our live calendar — weekends 9am–5pm work best, weekdays can be arranged.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h3>We confirm the details</h3>
+            <p>We'll take a look, confirm your flat-rate price, and lock everything in.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h3>Sit back, we clean</h3>
+            <p>We show up, get to work, and leave your cans, driveway or porch spotless.</p>
+          </div>
+        </div>
+      </div>
+      <div class="guarantee" style="margin-top:26px">
+        <h3>100% Satisfaction Guarantee</h3>
+        <p>If it's not spotless, we come back and re-clean for free — no questions asked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-label">FAQ</div>
+      <h2>Good to know.</h2>
+      <div style="margin-top:18px">
+        <details>
+          <summary>Do I need to be home?</summary>
+          <p>Nope! Just leave your cans, driveway, or porch accessible and we'll take care of the rest. No need to rearrange your day around us.</p>
+        </details>
+        <details>
+          <summary>What payment methods do you accept?</summary>
+          <p>Venmo, Apple Pay, Cash — whatever's easiest for you. Payment is collected after the cleaning is complete.</p>
+        </details>
+        <details>
+          <summary>What water and power source do you use?</summary>
+          <p>We bring our own equipment. Just point us to the area, a faucet, and a power supply — we'll handle everything else.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta wrap" id="book">
+    <div class="section-label">Ready when you are</div>
+    <h2>Grab a spot on the schedule.</h2>
+    <p>These times are live from our calendar — pick one and you're booked. Takes about 30 seconds.</p>
+    <div class="cal-frame" id="calFrame">
+      <iframe id="calIframe" title="Book a Curb Fresh appointment" loading="lazy"></iframe>
+      <div class="cal-fallback">
+        📅 Our live calendar is being set up — check back soon, or reach out and we'll find a time together.
+      </div>
+    </div>
+    <div class="no-pay">No payment due until after the job is done</div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">Curb<span>Fresh</span></a>
+    <p style="margin-top:6px">Trash can, driveway &amp; porch cleaning — right at your curb.<br>Los Gatos, CA</p>
+    <p style="margin-top:10px">© 2026 Curb Fresh. All rights reserved. ·
+      <a href="https://curbfresh.biz/privacy.html">Privacy</a> ·
+      <a href="https://curbfresh.biz/terms.html">Terms</a>
+    </p>
+  </div>
+</footer>
+
+<div class="book-bar" role="region" aria-label="Quick booking">
+  <div class="inner">
+    <div class="msg">Weekends 9am–5pm preferred · Pay after the job's done</div>
+    <a class="btn btn-lemon booking-link" href="#">Book a time</a>
+  </div>
+</div>
+
+<script>
+  // Every Book button scrolls to the live calendar section.
+  document.querySelectorAll(".booking-link").forEach(a => { a.href = "#book"; });
+
+  // Load the Google Calendar embed if the URL has been set.
+  const frame = document.getElementById("calFrame");
+  if (BOOKING_EMBED_URL.startsWith("https://calendar.google.com/")) {
+    document.getElementById("calIframe").src = BOOKING_EMBED_URL;
+  } else {
+    frame.classList.add("needs-setup");
+  }
+</script>
+
+</body>
+</html>
